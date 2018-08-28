@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import Sidebar from 'react-sidebar'
 import SideBarContent from './SideBarContent'
 import Main from './Main'
@@ -7,9 +8,9 @@ import MaterialTitlePanel from './MaterialTitlePanel'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
-import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
+import { faHome } from '@fortawesome/free-solid-svg-icons'
 
-library.add(faBars, faArrowLeft)
+library.add(faBars, faHome)
 
 const styles = {
   contentHeaderMenuLink: {
@@ -70,14 +71,15 @@ class App extends React.Component {
     const sidebar = <SideBarContent />
 
     const contentHeader = (
-
+      // Layered "bars" icon for better resolution
       <span>
         {!this.state.docked && (
-          <span class="hamburger">
+          <span className="fa-layers fa-fw Hamburger">
+            <FontAwesomeIcon icon="bars" onClick={this.toggleOpen} />
             <FontAwesomeIcon icon="bars" onClick={this.toggleOpen} />
           </span>
         )}
-        <span> Application Name</span>
+        <span class="Header"><Link to='/' class="Header-title">Application Name</Link></span>
       </span>
 
     )
