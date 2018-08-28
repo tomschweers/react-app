@@ -1,5 +1,6 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import Home from './Home'
 import Roster from './Roster'
 import Schedule from './Schedule'
@@ -16,6 +17,11 @@ const Main = () => (
       <Route path='/roster' component={Roster}/>
       <Route path='/schedule' component={Schedule}/>
     </Switch>
+    <ul>
+      <li><Link to='/'>Home</Link></li>
+      <li><Link to='/roster'>Roster</Link></li>
+      <li><Link to='/schedule'>Schedule</Link></li>
+    </ul>
   </main>
 )
 

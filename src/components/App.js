@@ -1,37 +1,104 @@
-/*
-import React, { Component } from 'react';
-//import logo from './logo.svg';
-import logo from './profile-pic.jpg';
-import './App.css';
+import React from 'react'
+import Sidebar from 'react-sidebar'
+import SideBarContent from './SideBarContent'
+import Main from './Main'
+import '../App.css'
+import MaterialTitlePanel from './MaterialTitlePanel'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBars } from '@fortawesome/free-solid-svg-icons'
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to my life</h1>
-        </header>
-        <p className="App-intro">
-          We are still in development........
-        </p>
-      </div>
-    );
+library.add(faBars, faArrowLeft)
+
+const styles = {
+  contentHeaderMenuLink: {
+    textDecoration: 'none',
+    color: 'white',
+    padding: 8
+  },
+  content: {
+    padding: '16px'
   }
 }
 
-export default App;
-*/
+const mql = window.matchMedia(`(min-width: 800px)`)
 
-import React from 'react'
-import Header from './Header'
-import Main from './Main'
+class App extends React.Component {
+  constructor (props) {
+    super(props)
 
-const App = () => (
-  <div>
-    <Header />
-    <Main />
-  </div>
-)
+    this.state = {
+      // docked: mql.matches,
+      docked: false,
+      open: false
+    }
+
+    this.mediaQueryChanged = this.mediaQueryChanged.bind(this)
+    this.toggleOpen = this.toggleOpen.bind(this)
+    this.onSetOpen = this.onSetOpen.bind(this)
+  }
+
+  componentWillMount () {
+    mql.addListener(this.mediaQueryChanged)
+  }
+
+  componentWillUnmount () {
+    mql.removeListener(this.mediaQueryChanged)
+  }
+
+  onSetOpen (open) {
+    this.setState({ open })
+  }
+
+  mediaQueryChanged () {
+    this.setState({
+      docked: mql.matches,
+      open: false
+    })
+  }
+
+  toggleOpen (ev) {
+    this.setState({ open: !this.state.open })
+
+    if (ev) {
+      ev.preventDefault()
+    }
+  }
+
+  render () {
+    const sidebar = <SideBarContent />
+
+    const contentHeader = (
+
+      <span>
+        {!this.state.docked && (
+          <span class="hamburger">
+            <FontAwesomeIcon icon="bars" onClick={this.toggleOpen} />
+          </span>
+        )}
+        <span> Application Name</span>
+      </span>
+
+    )
+
+    const sidebarProps = {
+      sidebar,
+      docked: this.state.docked,
+      open: this.state.open,
+      onSetOpen: this.onSetOpen
+    }
+
+    return (
+      <Sidebar {...sidebarProps}>
+        <MaterialTitlePanel title={contentHeader}>
+          <div style={styles.content}>
+            <Main />
+          </div>
+        </MaterialTitlePanel>
+      </Sidebar>
+    )
+  }
+}
 
 export default App
