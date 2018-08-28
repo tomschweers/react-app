@@ -30,8 +30,8 @@ class App extends React.Component {
     super(props)
 
     this.state = {
-      // docked: mql.matches,
-      docked: false,
+      docked: mql.matches,
+      docked: true,
       open: false
     }
 
