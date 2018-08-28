@@ -6,7 +6,10 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.3",
     "@fortawesome/free-solid-svg-icons": "^5.3.0",
     "@fortawesome/react-fontawesome": "^0.1.2",
+    "@handsontable-pro/react": "^1.1.0",
     "@trendmicro/react-sidenav": "^0.4.5",
+    "eslint-plugin-react": "^7.11.1",
+    "handsontable-pro": "^5.0.1",
     "i": "^0.3.6",
     "npm": "^6.4.0",
     "react": "^16.4.2",
@@ -22,5 +25,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.0.0",
+    "@babel/core": "^7.0.0"
   }
 }

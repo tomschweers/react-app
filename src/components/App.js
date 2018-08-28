@@ -7,8 +7,7 @@ import '../App.css'
 import MaterialTitlePanel from './MaterialTitlePanel'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBars } from '@fortawesome/free-solid-svg-icons'
-import { faHome } from '@fortawesome/free-solid-svg-icons'
+import { faBars, faHome } from '@fortawesome/free-solid-svg-icons'
 
 library.add(faBars, faHome)
 
@@ -30,8 +29,8 @@ class App extends React.Component {
     super(props)
 
     this.state = {
-      docked: mql.matches,
-      docked: true,
+      //docked: mql.matches,
+      docked: false,
       open: false
     }
 
