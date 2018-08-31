@@ -1,8 +1,10 @@
 import React from 'react'
+import MyTable from './ReactTable'
 
 const Home = () => (
   <div>
-    <h1>Welcome to my app</h1>
+    <h1>Exploded BOM Table</h1>
+    <MyTable />
   </div>
 )
 

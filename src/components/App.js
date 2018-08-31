@@ -8,6 +8,7 @@ import MaterialTitlePanel from './MaterialTitlePanel'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faHome } from '@fortawesome/free-solid-svg-icons'
+import 'react-table/react-table.css'
 
 library.add(faBars, faHome)
 

@@ -17,11 +17,6 @@ const Main = () => (
       <Route path='/roster' component={Roster}/>
       <Route path='/schedule' component={Schedule}/>
     </Switch>
-    <ul>
-      <li><Link to='/'>Home</Link></li>
-      <li><Link to='/roster'>Roster</Link></li>
-      <li><Link to='/schedule'>Schedule</Link></li>
-    </ul>
   </main>
 )
 
