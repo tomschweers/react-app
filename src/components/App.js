@@ -23,65 +23,29 @@ const styles = {
   }
 }
 
-const mql = window.matchMedia(`(min-width: 800px)`)
-
 class App extends React.Component {
   constructor (props) {
     super(props)
 
     this.state = {
-      //docked: mql.matches,
-      docked: false,
-      open: false
+      docked: true,
+      open: true
     }
 
-    this.mediaQueryChanged = this.mediaQueryChanged.bind(this)
-    this.toggleOpen = this.toggleOpen.bind(this)
     this.onSetOpen = this.onSetOpen.bind(this)
-  }
-
-  componentWillMount () {
-    mql.addListener(this.mediaQueryChanged)
-  }
-
-  componentWillUnmount () {
-    mql.removeListener(this.mediaQueryChanged)
   }
 
   onSetOpen (open) {
     this.setState({ open })
   }
 
-  mediaQueryChanged () {
-    this.setState({
-      docked: mql.matches,
-      open: false
-    })
-  }
-
-  toggleOpen (ev) {
-    this.setState({ open: !this.state.open })
-
-    if (ev) {
-      ev.preventDefault()
-    }
-  }
-
   render () {
     const sidebar = <SideBarContent />
 
     const contentHeader = (
-      // Layered "bars" icon for better resolution
       <span>
-        {!this.state.docked && (
-          <span className="fa-layers fa-fw Hamburger">
-            <FontAwesomeIcon icon="bars" onClick={this.toggleOpen} />
-            <FontAwesomeIcon icon="bars" onClick={this.toggleOpen} />
-          </span>
-        )}
-        <span class="Header"><Link to='/' class="Header-title">Application Name</Link></span>
+        <span class="Header"><Link to='/' class="Header-title"><FontAwesomeIcon icon="home" /></Link></span>
       </span>
-
     )
 
     const sidebarProps = {

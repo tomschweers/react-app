@@ -1,10 +1,10 @@
 import React from 'react'
-import MyTable from './ReactTable'
+import Clock from './Clock'
 
 const Home = () => (
   <div>
-    <h1>Exploded BOM Table</h1>
-    <MyTable />
+    <h1>Welcome</h1>
+    <Clock />
   </div>
 )
 

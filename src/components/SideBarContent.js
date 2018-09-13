@@ -32,13 +32,13 @@ const SideBarContent = props => {
     : styles.sidebar
 
   return (
-    <MaterialTitlePanel title="Application Name" style={style}>
+    <MaterialTitlePanel style={style}>
       <div style={styles.content}>
         <Link to='/'style={styles.sidebarLink}>Home</Link>
-        <Link to='/roster'style={styles.sidebarLink}>About</Link>
         <div style={styles.divider} />
-        <Link to='/player'style={styles.sidebarLink}>Player</Link>
-        <Link to='/schedule'style={styles.sidebarLink}>Schedule</Link>
+        <Link to='/nestedtable'style={styles.sidebarLink}>Nested Table</Link>
+        <Link to='/treetable'style={styles.sidebarLink}>Tree Table</Link>
+        <Link to='/accordion'style={styles.sidebarLink}>Accordion</Link>
       </div>
     </MaterialTitlePanel>
   )

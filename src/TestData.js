@@ -1,6 +1,6 @@
-// Test Data
+export default
 
-const ExpodedBOM = [
+[
   {
     'ROW_SORT': '1',
     'MODEL_NAME': null,
@@ -47,5 +47,3 @@ const ExpodedBOM = [
     'ITEM_MARGIN': '1183.99'
   }
 ]
-
-export default ExpodedBOM

@@ -43,7 +43,8 @@
 }
 .Header {
   cursor: pointer;
-  padding-left: 20px;
+  padding-right: 20px;
+  float: right;
 }
 .Header-title {
   text-decoration: none;
